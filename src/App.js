@@ -3,9 +3,11 @@ import {BrowserRouter,Routes, Route} from 'react-router-dom';
 import NavBar from './components/NavBar';
 import MovieDetail from './components/MovieDetail';
 import MovieListing from './components/MovieListing';
+
 // import './App.scss'
 
 const App = () => {
+  
   return (
     <>
     <div className='app'>

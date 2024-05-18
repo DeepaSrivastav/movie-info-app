@@ -1,29 +1,36 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import movieAPI from '../API/movieAPI'
-import { APIKey } from '../API/movieApiKey';
+
 
 export const fetchAsyncMovies = createAsyncThunk(
     'movies/fetchAsyncMovies', 
-    async (term) => {
-    const response = await movieAPI.get(`?apiKey=${APIKey}&s=${term}&type=movie`);
-    console.log(response);
- return response.data.Search;
+    async ({term}) => {
+        return fetch('localhost:8000/movies',{
+            method:'POST',
+            body:JSON.stringify({term})
+        }).then((res) => res.Search)
+//     const response = await movieAPI.get();
+//     console.log(response);
+//  return response.data.Search;
 });
 
 export const fetchAsyncShows = createAsyncThunk(
     'movies/fetchAsyncShows',
-     async (term) => {
-
-    const response = await movieAPI.get(`?apiKey=${APIKey}&s=${term}&type=series`);
-    console.log(response);
- return response.data.Search;
+     async ({term}) => {
+        return fetch('localhost:8000/movies',{
+            method:'POST',
+            body:JSON.stringify({term})
+        })
+//     const response = await movieAPI.get();
+//     console.log(response);
+//  return response.data.Search;
 });
 
 export const fetchAsyncDetails = createAsyncThunk(
     'movies/fetchAsyncDetails',
-     async (id) => {
+     async () => {
 
-    const response = await movieAPI.get(`?apiKey=${APIKey}&i=${id}&Plot=full`);
+    const response = await movieAPI.get();
     console.log(response);
  return response.data;
 });

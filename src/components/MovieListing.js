@@ -16,8 +16,8 @@ const MovieListing = () => {
   useEffect(()=>{
     const movieText = 'Harry';
 
-    dispatch(fetchAsyncMovies(movieText));
-    dispatch(fetchAsyncShows(movieText));
+    dispatch(fetchAsyncMovies({movieText}));
+    dispatch(fetchAsyncShows({movieText}));
   
   },[dispatch])
 

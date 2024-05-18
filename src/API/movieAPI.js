@@ -1,8 +1,8 @@
 import axios from 'axios';
 
 export default axios.create({
-    baseURL:"http://www.omdbapi.com/",
+    baseURL:"localhost:8000/movies",
     // params:{
-    //     key:'53c800d',
+    //     term: ${},
     // }
 })
